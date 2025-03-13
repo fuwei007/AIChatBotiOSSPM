@@ -19,6 +19,7 @@ public class ChatVCDefaultSetManager: NSObject, @unchecked Sendable{
     }
     //MARK: 2.Param
     public var your_openAI_Appkey = ""
+    public var your_openAI_AccessToken = ""
     public var backgroundColor = UIColor.black
     public var isShowLogo = false
     public var logoImage = UIImage(named: "AIChatBotiOSSDK_LOGO", in: Bundle.module, with: nil)
@@ -40,8 +41,8 @@ public class ChatVCDefaultSetManager: NSObject, @unchecked Sendable{
     public var currentChatVC: ChatViewController!
     //public var currentChatVC: ChatBotViewController!
     @MainActor public func showChatVC(fromVC: UIViewController){
-        if self.your_openAI_Appkey.count == 0{
-            let alertVC = UIAlertController(title: "Please set your openAI appkey first!", message: "", preferredStyle: .alert)
+        if your_openAI_AccessToken.count == 0 && your_openAI_Appkey.count == 0{
+            let alertVC = UIAlertController(title: "Please set your OpenAI Appkey or Access Token first!", message: "", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             fromVC.present(alertVC, animated: true)
             return
