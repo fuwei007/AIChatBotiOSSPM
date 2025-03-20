@@ -192,7 +192,7 @@ import AIChatBotiOSSPM
   
 ## Specific usage video
 
-Open AI Realtime API iOS SDK | Fully open source | Swift code available on GitHub | Cocoa pod [YouTube](https://youtu.be/3HC1VeaPhRo)
+Open AI Realtime API iOS SDK | Fully open source | Swift code available on GitHub | Cocoa pod [YouTube](https://www.youtube.com/watch?v=NsnZX27RfMg)
 
 ## Related Projects
 
