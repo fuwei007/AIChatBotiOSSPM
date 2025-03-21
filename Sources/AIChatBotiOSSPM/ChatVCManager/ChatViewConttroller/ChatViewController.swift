@@ -294,16 +294,13 @@ public class ChatViewController: UIViewController, UITableViewDelegate, UITableV
         }
         chatTextView.resignFirstResponder()
         
-        /*
-        let audioVC = AudioChatViewController()
-        let nc = UINavigationController(rootViewController: audioVC)
-        nc.modalPresentationStyle = .fullScreen
-        present(nc, animated: true)
-         */
-        
         let audioVC = AlertAudioChatViewController()
+        audioVC.clickBackBlock = {
+            self.inputChatView.isHidden = false
+        }
         let nc = UINavigationController(rootViewController: audioVC)
         nc.modalPresentationStyle = .overCurrentContext
+        self.inputChatView.isHidden = true
         present(nc, animated: true)
         
     }

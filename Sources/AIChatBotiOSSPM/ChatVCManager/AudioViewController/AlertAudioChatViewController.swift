@@ -5,9 +5,17 @@ import AVFoundation
 @MainActor
 class AlertAudioChatViewController: UIViewController {
     
+    var clickBackBlock: (()->())?
     lazy var navigationView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: kStatusBarHeight, width: kScreen_WIDTH-32, height: 44))
         view.backgroundColor = .clear
+        
+        let backButton = EnlargedButton(type: .custom)
+        backButton.frame = CGRect(x: 0, y: 44/2-18/2, width: 18, height: 18)
+        backButton.setImage(UIImage(named: "AIChatBotiOSSDK_Back", in: Bundle(for: AlertAudioChatViewController.self), with: nil), for: .normal)
+        backButton.imageView?.contentMode = .scaleAspectFit
+        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
+        view.addSubview(backButton)
         return view
     }()
 
@@ -120,6 +128,7 @@ class AlertAudioChatViewController: UIViewController {
             audioPeadkerChangeTimer = nil
         }
         dismiss(animated: true)
+        clickBackBlock?()
     }
     
     var audioRecorder: AVAudioRecorder?
